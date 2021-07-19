@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "sh -ac '. .env.${REACT_APP_ENV}; react-scripts build'",
+    "build": "sh -ac '. ./.env.${REACT_APP_ENV}; react-scripts build'",
     "build:sta": "REACT_APP_ENV=staging npm run build",
     "build:prod": "REACT_APP_ENV=production npm run build",
     "test": "react-scripts test",
