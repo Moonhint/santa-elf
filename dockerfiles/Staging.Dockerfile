@@ -11,7 +11,8 @@ FROM nginx as production-stage
 # RUN unzip nginx-brotli-modules.zip
 # RUN rm -rf nginx-brotli-modules.zip 
 RUN mkdir /app
-COPY --from=build-stage /app/build /app
+RUN mkdir /app/professional
+COPY --from=build-stage /app/build /app/professional
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
