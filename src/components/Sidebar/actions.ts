@@ -4,7 +4,7 @@ interface typeSetSomethingPayload { something: string };
 type typePayload = typeSetCollapsePayload | typeSetSomethingPayload;
 
 const actionSetCollapseValue = (payload:typePayload, setValue:ReactDispatcher) => {
-    const { collapsed } = <typeSetCollapsePayload>payload;
+    const { collapsed } = payload as typeSetCollapsePayload;
     if (collapsed !== undefined) setValue({ collapsed });
 }
 
