@@ -5,17 +5,16 @@
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@emotion/react": "^11.4.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "antd": "^4.16.9",
+    "axios": "^0.21.1",
+    "i18next": "^20.3.5",
     "react": "^17.0.2",
+    "react-device-detect": "^1.17.0",
     "react-dom": "^17.0.2",
+    "react-i18next": "^11.11.4",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "typescript": "^4.1.2",
+    "source-map-explorer": "^2.5.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -24,7 +23,8 @@
     "build:sta": "REACT_APP_ENV=staging npm run build",
     "build:prod": "REACT_APP_ENV=production npm run build",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "homepage": "/professional/",
   "eslintConfig": {
@@ -46,6 +46,17 @@
     ]
   },
   "devDependencies": {
-    "craco-alias": "^3.0.1"
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.15",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router": "^5.1.16",
+    "@types/react-router-dom": "^5.1.8",
+    "@types/webpack-env": "^1.16.2",
+    "craco-alias": "^3.0.1",
+    "typescript": "^4.1.2"
   }
 }

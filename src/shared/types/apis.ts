@@ -1,0 +1,1 @@
+export type apiQueryType = { [key: string]: string | number | boolean } | undefined;
