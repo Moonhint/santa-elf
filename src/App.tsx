@@ -20,10 +20,14 @@ function App() {
         {renderTopNavigation}
         <Switch>
           <Route path="/professional">
-            <ProfessionalList />
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProfessionalList />
+            </Suspense>
           </Route>
           <Route path="/professional-detail">
-            <ProfessionalDetail />
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProfessionalDetail />
+            </Suspense>
           </Route>
           <Route path="/professional-area">
             <Suspense fallback={<div>Loading...</div>}>
