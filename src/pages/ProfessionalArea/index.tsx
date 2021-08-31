@@ -1,38 +1,41 @@
-// import useNavbarState from './states';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import ProfessionalAreaView from './view';
-// import locale from './locale';
-// import { useTranslation } from 'react-i18next';
+import { Route, useRouteMatch } from "react-router-dom";
+import React, { Suspense } from 'react';
 import Sidebar from '@components/Sidebar';
-// import useCurrentLanguage from '@shared/hooks/useCurrentLanguage';
 
-// Have 4 children (Membership, Business Detail, Orders, Services)
+const ProfessionalMembership = React.lazy(() => import('../ProfessionalMembership'));
+
 const ProfessionalArea = () => {
 
-    // model
-
-    // controller
-
+    let { url, path } = useRouteMatch();
+    
     return (
-        <Router>
-            <Sidebar/>
-            <Switch>
-                <Route path="/membership">
-                    <div>Membership</div>
+        <div>
+            <Sidebar url={url}>
+                <Route path={`${path}/membership`}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <ProfessionalMembership/>
+                    </Suspense>
                 </Route>
-                <Route path="/professional-detail">
+                <Route path={`${path}/professional-detail`}>
                     <div>Business Detail</div>
                 </Route>
-                <Route path="/orders">
-                    <div>Orders</div>
+                <Route path={`${path}/orders`}>
+                    <div>Order</div>
                 </Route>
-                <Route path="/orders">
+                <Route path={`${path}/services`}>
                     <div>Services</div>
                 </Route>
-            </Switch>
-        </Router>
+                <Route path={`${path}/create-service`}>
+                    <div>Create Service</div>
+                </Route>
+                <Route exact path={path}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <ProfessionalMembership/>
+                    </Suspense>
+                </Route>
+            </Sidebar>
+        </div>
     )
 }
 
 export default ProfessionalArea;
-

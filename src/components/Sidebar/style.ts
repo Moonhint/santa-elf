@@ -9,6 +9,12 @@ const menu = css`
 `
 const content = css`
   background-color: #FFF;
+
+  @media only screen and (max-width: 420px) {
+    .site-layout-background {
+      padding: 0 !important;
+    }
+  }
 `
 
 const styles = {
