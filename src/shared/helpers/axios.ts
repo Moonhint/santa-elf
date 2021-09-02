@@ -9,6 +9,7 @@ const instance = axios.create({
 instance.interceptors.response.use(function (response) {
   return response
 }, function (error) {
+  console.log(error)
   if (error.response.status === 401) {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('member');

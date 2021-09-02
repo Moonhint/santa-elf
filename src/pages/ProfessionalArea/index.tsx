@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import Sidebar from '@components/Sidebar';
 
 const ProfessionalMembership = React.lazy(() => import('../ProfessionalMembership'));
+const ProfessionalBusinessDetail = React.lazy(() => import('../ProfessionalBusinessDetail'));
 
 const ProfessionalArea = () => {
 
@@ -17,7 +18,9 @@ const ProfessionalArea = () => {
                     </Suspense>
                 </Route>
                 <Route path={`${path}/professional-detail`}>
-                    <div>Business Detail</div>
+                    <Suspense fallback={<div>Loading</div>}>
+                        <ProfessionalBusinessDetail/>
+                    </Suspense>
                 </Route>
                 <Route path={`${path}/orders`}>
                     <div>Order</div>
