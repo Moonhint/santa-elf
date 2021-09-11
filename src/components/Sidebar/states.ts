@@ -16,6 +16,7 @@ function useNavbarState() {
     const [value, setValue] = useState(defaultValue);
     const dispatcher = useCallback((type: string, payload:typeDispatcherPayload = {}) => {
         actions[type](value, payload, setValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return { value, dispatcher };
 }

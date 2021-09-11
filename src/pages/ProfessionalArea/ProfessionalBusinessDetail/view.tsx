@@ -1,6 +1,6 @@
 // import { LOCALE_KEY } from './const';
 // import { useTranslation } from 'react-i18next';
-import { ProfessionalType } from '@/apis/professional';
+import { ProfessionalType } from '@/apis/lib/professional';
 // import { Form, Input, Button } from 'antd';
 import { ValidateErrorEntity } from "rc-field-form/lib/interface";
 

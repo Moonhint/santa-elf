@@ -2,8 +2,11 @@ import { Route, useRouteMatch } from "react-router-dom";
 import React, { Suspense } from 'react';
 import Sidebar from '@components/Sidebar';
 
-const ProfessionalMembership = React.lazy(() => import('../ProfessionalMembership'));
-const ProfessionalBusinessDetail = React.lazy(() => import('../ProfessionalBusinessDetail'));
+const ProfessionalMembership = React.lazy(() => import('./ProfessionalMembership'));
+const ProfessionalBusinessDetail = React.lazy(() => import('./ProfessionalBusinessDetail'));
+const ProfessionalServiceList = React.lazy(() => import('./ProfessionalServiceList'));
+const ProfessionalServiceCreate = React.lazy(() => import('./ProfessionalServiceCreate'));
+const ProfessionalServiceEdit = React.lazy(() => import('./ProfessionalServiceEdit'));
 
 const ProfessionalArea = () => {
 
@@ -26,10 +29,19 @@ const ProfessionalArea = () => {
                     <div>Order</div>
                 </Route>
                 <Route path={`${path}/services`}>
-                    <div>Services</div>
+                    <Suspense fallback={<div>Loading</div>}>
+                        <ProfessionalServiceList/>
+                    </Suspense>
                 </Route>
                 <Route path={`${path}/create-service`}>
-                    <div>Create Service</div>
+                    <Suspense fallback={<div>Loading</div>}>
+                        <ProfessionalServiceCreate/>
+                    </Suspense>
+                </Route>
+                <Route path={`${path}/edit-service/:id`}>
+                    <Suspense fallback={<div>Loading</div>}>
+                        <ProfessionalServiceEdit/>
+                    </Suspense>
                 </Route>
                 <Route exact path={path}>
                     <Suspense fallback={<div>Loading...</div>}>

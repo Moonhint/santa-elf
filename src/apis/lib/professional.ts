@@ -1,8 +1,10 @@
 import axios from "@shared/helpers/axios";
+import constructErrorResponse, { ErrorResponseType } from '../errorResponse';
+
 export const apiPath = 'api/v2/profession-details';
 
 export type ProfessionalType = {
-    id: number
+    id?: number
     isActive?: boolean,
     addressLat?: string,
     addressLong?: string,
@@ -37,24 +39,20 @@ export type ProfessionalType = {
     ableToUseProfessionalFeatures?: boolean,
     ableToUseProfessionalPayment?: boolean,
     personalWebsiteUrl?: string,
-    createdAt: string
-    updatedAt: string
+    createdAt?: string
+    updatedAt?: string
 }
 
-interface ErrorParamsType {
-    errorStatus?:number, 
-    errorMessage:string
-}
-interface ErrorResponseType {
-    status: number,
-    message: string,
-}
-const constructErrorResponse = (params:ErrorParamsType):ErrorResponseType => {
-    return {
-        status: params.errorStatus || 400,
-        message: params.errorMessage || ''
+
+type ShowParamsType = number | null;
+export const getShowUrlById = (id:ShowParamsType):string => {
+    if (!id){
+        throw Error('invalid params id');
+    }else{
+        return `${process.env.REACT_APP_API_URL}/${apiPath}/show/${id}`;
     }
 }
+
 
 interface UpdateResponseType {
     data: ProfessionalType | undefined;

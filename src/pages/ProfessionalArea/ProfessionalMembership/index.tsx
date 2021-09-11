@@ -19,6 +19,7 @@ const ProfessionalMembership = () => {
 
     useEffect(()=>{
         geActiveProfessionalMembership();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

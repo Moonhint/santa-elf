@@ -1,0 +1,1 @@
+export const LOCALE_KEY = 'service-list-item-page';

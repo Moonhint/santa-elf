@@ -6,7 +6,7 @@ import { LOCALE_KEY } from './const';
 import { registerLocale } from '@/shared/helpers/language';
 import { getProfessionalDetailId } from '@/shared/helpers/userCred'; 
 import { useTranslation } from 'react-i18next';
-import { apiPath, ProfessionalType, updateProfessionalById } from '@/apis/professional';
+import { apiPath, ProfessionalType, updateProfessionalById } from '@/apis/lib/professional';
 import useFetch from '@/apis/useFetch';
 
 const ProfessionalBusinessDetail = () => {

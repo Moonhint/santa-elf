@@ -8,7 +8,7 @@ interface PropsType {
     title: string;
 }
 
-const TemplatePageView = (props:PropsType) => {
+const ProfessionalServiceEditPageView = (props:PropsType) => {
     const { t } = useTranslation(LOCALE_KEY);
     return (
         <div css={style.base}>
@@ -18,4 +18,4 @@ const TemplatePageView = (props:PropsType) => {
     )
 }
 
-export default TemplatePageView;
+export default ProfessionalServiceEditPageView;

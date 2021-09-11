@@ -5,17 +5,23 @@ import { Button } from 'antd';
 import style from './style';
 
 interface PropsType {
-    title: string;
+    name: string;
+    coverImageUrl: string;
+    viewCount: number;
+    finishedCount: number;
+    priceStr: string;
+    active: boolean;
+    adminChecking: boolean;
+    editUrl: string;
 }
 
-const TemplatePageView = (props:PropsType) => {
+const ServiceListItemPageView = (props:PropsType) => {
     const { t } = useTranslation(LOCALE_KEY);
     return (
         <div css={style.base}>
-            {props.title}
             <Button>{t('view')}</Button>
         </div>
     )
 }
 
-export default TemplatePageView;
+export default ServiceListItemPageView;
