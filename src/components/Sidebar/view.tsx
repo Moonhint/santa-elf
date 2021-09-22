@@ -36,7 +36,7 @@ const SidebarView = (props:PropsType) => {
                         <Link to={`${props.url}/membership`}>{t('menu.membership')}</Link>
                     </Menu.Item>
                     <Menu.Item key="professional-detail" icon={<ShopOutlined />}>
-                        <Link to={`${props.url}/professional-detail`}>{t('menu.business_detail')}</Link>
+                        <Link to={`${props.url}/detail`}>{t('menu.business_detail')}</Link>
                     </Menu.Item>
                     <SubMenu key="service" icon={<ProjectOutlined />} title={t('menu.service')}>
                         <Menu.Item key="create-service">

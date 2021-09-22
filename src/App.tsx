@@ -34,6 +34,11 @@ function App() {
               <ProfessionalArea />
             </Suspense>
           </Route>
+          <Route path="/professional/">
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProfessionalList />
+            </Suspense>
+          </Route>
         </Switch>
       </Router>
     </div>

@@ -114,7 +114,7 @@ const NavbarView = (props:NavbarViewPropsType) => {
                 <a href={`${OUTSIDE_HOST}/member-area`}>{t('member.submenu.member_area')}</a>
             </Menu.Item>
             <Menu.Item icon={generatePictureElem('ico-blog')} key="member-professional-area">
-                <Link to="/professional-area">{t('member.submenu.professional_area')}</Link>
+                <Link to="/professional/area">{t('member.submenu.professional_area')}</Link>
             </Menu.Item>
             <Menu.Item icon={generatePictureElem('suggestion')} key="member-suggestion">
                 <button>{t('member.submenu.suggestion')}</button>
