@@ -19,17 +19,17 @@ function App() {
       <Router>
         {renderTopNavigation}
         <Switch>
-          <Route path="/professional">
+          <Route path="/professional/list">
             <Suspense fallback={<div>Loading...</div>}>
               <ProfessionalList />
             </Suspense>
           </Route>
-          <Route path="/professional-detail">
+          <Route path="/professional/detail">
             <Suspense fallback={<div>Loading...</div>}>
               <ProfessionalDetail />
             </Suspense>
           </Route>
-          <Route path="/professional-area">
+          <Route path="/professional/area">
             <Suspense fallback={<div>Loading...</div>}>
               <ProfessionalArea />
             </Suspense>

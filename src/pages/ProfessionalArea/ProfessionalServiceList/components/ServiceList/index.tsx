@@ -1,20 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import locale from './locale';
 import ServiceListView from './view';
 import { LOCALE_KEY, ServiceState } from './const';
 import { registerLocale } from '@/shared/helpers/language';
 import { useTranslation } from 'react-i18next';
 import { getMyServiceIndexUrl, ProfessionalServiceType } from '@/apis/lib/service';
+import { useListCounterContext } from '../../contexts/listCounter';
 import useFetch from '@/apis/useFetch';
 import util from '@/shared/helpers/api-utils';
 
-type ServiceIndexType = ProfessionalServiceType[] | never[];
+interface ServiceIndexType {
+    data: ProfessionalServiceType[] | never[];
+    meta: {
+        total: number;
+    }
+}
 interface PropsType {
     state?: ServiceState;
 }
 const ServiceList = ({state = 'ALL'}:PropsType) => {
     const { i18n } = useTranslation(LOCALE_KEY);
-    const [ services, updateServices ] = useState<ServiceIndexType>([]);
+    const [ services, updateServices ] = useState<ProfessionalServiceType[] | never[]>([]);
+    const { setAllListCount } = useListCounterContext();
     const query:{state?:string;} = {};
     if (state === 'ACTIVE'){
         query['state'] = 'findBy[]=eq,isActive,true,boolean';
@@ -27,7 +34,10 @@ const ServiceList = ({state = 'ALL'}:PropsType) => {
     const { data, error, loading } = useFetch<ServiceIndexType>(INDEX_URL);
 
     useEffect(()=>{
-        if (data) updateServices(data);
+        if (data && setAllListCount) {
+            updateServices(data.data);
+            setAllListCount(data.meta.total);
+        }
     }, [data]);
 
     if (loading) return <div>Loading</div>;
