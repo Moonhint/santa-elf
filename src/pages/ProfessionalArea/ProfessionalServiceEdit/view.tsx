@@ -1,21 +1,26 @@
 /** @jsxImportSource @emotion/react */
 import { LOCALE_KEY } from './const';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'antd';
+import { Typography } from 'antd';
+import { ProfessionalServiceType } from '@/apis/lib/service';
 import style from './style';
+import ProfessionalServiceForm from '../components/ProfessionalServiceForm'; 
+
+const { Title } = Typography;
 
 interface PropsType {
-    title: string;
+    onSubmit: (payload: ProfessionalServiceType) => void;
 }
-
-const ProfessionalServiceEditPageView = (props:PropsType) => {
+const ProfessionalServiceEditView = (props:PropsType) => {
     const { t } = useTranslation(LOCALE_KEY);
     return (
         <div css={style.base}>
-            {props.title}
-            <Button>{t('view')}</Button>
+            <div css={style.title}>
+                <Title level={3}>{t('title')}</Title>
+            </div>
+            <ProfessionalServiceForm onSubmit={props.onSubmit} />
         </div>
     )
 }
 
-export default ProfessionalServiceEditPageView;
+export default ProfessionalServiceEditView;

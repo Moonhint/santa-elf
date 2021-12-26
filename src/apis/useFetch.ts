@@ -7,6 +7,7 @@ const useFetchAPI = <Type>(url:string) => {
     const [error, setError] = useState(false);
     const [refetchCount, updateRefetchCount] = useState(0);
 
+    
     const refetch = ():void => {
         updateRefetchCount(refetchCount + 1);
     }
@@ -29,7 +30,7 @@ const useFetchAPI = <Type>(url:string) => {
         fetchData();
     }, [refetchCount, url]);
 
-    return { data, loading, error, refetch};
+    return { data, loading, error, refetch };
 }
 
 export default useFetchAPI;

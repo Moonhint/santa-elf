@@ -2,6 +2,8 @@ import { LOCALE_KEY } from './const';
 import { useTranslation } from 'react-i18next';
 // import { ProfessionType } from '@/apis/useProfession';
 // import { ProfessionalType } from '@/apis/useProfessional';
+import ProfessionalProfileList from './components/ProfileList';
+import ProfessionalServiceList from './components/ServiceList';
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
@@ -20,7 +22,7 @@ const ProfessionalListView = (props:ProfessionalListViewPropsType) => {
         <div>
             <Tabs defaultActiveKey="1" onChange={props.tabChanged}>
                 <TabPane tab={t('tab.service')} key="service">
-                    service
+                    <ProfessionalServiceList/>
                     {/* <pre>
                         {props.isLoadingDataProfessions ? 'true' : 'false'}
                     </pre>
@@ -29,6 +31,7 @@ const ProfessionalListView = (props:ProfessionalListViewPropsType) => {
                     </pre> */}
                 </TabPane>
                 <TabPane tab={t('tab.professional')} key="professional">
+                    <ProfessionalProfileList/>
                     {/* <pre>
                         {props.isLoadingProfessionals ? 'true' : 'false'}
                     </pre>

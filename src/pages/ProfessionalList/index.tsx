@@ -1,4 +1,3 @@
-// import { useEffect } from "react";
 import locale from './locale';
 import ProfessionalListView from './view';
 // import useProfession from '@/apis/useProfession';
@@ -13,10 +12,6 @@ const ProfessionalList = () => {
 
     registerLocale(i18n, LOCALE_KEY, locale);
 
-    // useEffect(()=>{
-    //     getAllProfessions();
-    //     getAllProfessionals();
-    // }, []);
 
     const tabChanged = (tab:string) => {
         console.log(tab)

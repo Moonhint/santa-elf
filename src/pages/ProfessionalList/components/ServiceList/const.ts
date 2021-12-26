@@ -1,0 +1,1 @@
+export const LOCALE_KEY = 'professional-service-list';

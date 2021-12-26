@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Switch } from 'antd';
 import style from './style';
 import { EyeFilled, ShoppingOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 
 interface PropsType {
@@ -49,7 +50,9 @@ const ServiceListItemPageView = (props:PropsType) => {
             </div>
             <div className="left-side">
                 <Switch defaultChecked onChange={onChange} />
-                <Button type="primary" size="large">{t('edit')}</Button>
+                <Link to={props.editUrl}>
+                    <Button type="primary" size="large">{t('edit')}</Button>
+                </Link>
             </div>
         </div>
     )

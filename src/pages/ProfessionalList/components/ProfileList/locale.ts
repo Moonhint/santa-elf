@@ -1,9 +1,9 @@
 const locale = {
     en: {
-        title: 'Edit Service',
+        view: 'View'
     },
     id: {
-        title: 'Ubah Jasa',
+        view: 'Tampilan'
     }
 }
 

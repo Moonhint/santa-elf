@@ -23,7 +23,7 @@ const ServiceListItemPage = (props:PropsType) => {
     const priceStr:string = (service.price) ? String(currency(service.price, "splitter")) : '0';
     const active:boolean = (service.isActive) ? Boolean(service.isActive) : false;
     const adminChecking:boolean = (service.isAcknowledge) ? Boolean(service.isAcknowledge) : false;
-    const editUrl:string = `/edit-service/${service.id}`; 
+    const editUrl:string = `/professional/area/edit-service/${service.id}`; 
     
     registerLocale(i18n, LOCALE_KEY, locale);
     

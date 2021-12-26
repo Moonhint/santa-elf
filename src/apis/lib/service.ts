@@ -22,12 +22,17 @@ export type ProfessionalServiceType = {
     ratingFourCount?: number;
     ratingFiveCount?: number;
     price?: number;
+    addressProvince?: string;
+    addressCity?: string;
     viewsCount?: number;
     finishedCount?: number;
     createdAt?: string
     updatedAt?: string
 }
 
+export type IndexProfessionalReturnType = {
+    data: ProfessionalServiceType[]
+}
 
 export const getIndexUrl = ():string => {
     return `${process.env.REACT_APP_API_URL}/${apiPath}/index`;
@@ -51,7 +56,7 @@ interface UpdateResponseType {
     data: ProfessionalServiceType | undefined;
     error: ErrorResponseType | undefined;
 };
-export const updateServiceById = async (id: number | null, params:ProfessionalServiceType):Promise<UpdateResponseType> => {
+export const updateServiceById = async (id: number | undefined, params:ProfessionalServiceType):Promise<UpdateResponseType> => {
     let response:UpdateResponseType = {
         data: undefined,
         error: undefined,
